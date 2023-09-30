@@ -1,1 +1,87 @@
-<h1>Example App: Home</h1>
+<link href="/stylesheets/index.css" rel="stylesheet">
+
+<header class="header d-flex justify-content-start sticky-top">
+    <h2>Random Password Generator</h2>
+</header>
+<!-- As a heading -->
+
+
+<div class="container position-absolute top-50 start-50 translate-middle">
+    <div class="d-flex justify-content-start ">
+        <h5><em>Random Password Generator</em></h5>
+        </div>
+    <form>
+        <div class="row mb-3">
+            <legend for="input-number" class="col-sm-2  col-form-label">Password Length</legend>
+            <div class="col-sm-10 mt-10">
+                <input type="number" class="form-control" id="inputEmail3" aria-describedby="passwordHelp" min="4" max="16" required>
+                <div id="passwordHelp" class="form-text">Length is available between 4 ~ 16</div>
+            </div>
+        </div>
+
+        <fieldset class="row mb-3">
+            <div class="row mb-3" id="Lowercase">
+                <legend class="col-form-label col-sm-2 pt-0">Include Lowercase Characters</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            (e.g. abcdefg)
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="row mb-3 mt-0">
+            <div class="row mb-3" id="Uppercase">
+                <legend class="col-form-label col-sm-2 pt-0">Include Uppercase Characters</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1">
+                        <label class="form-check-label" for="gridCheck1">
+                            (e.g. ABCDEFG)
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+       
+    <fieldset class="row mb-3 mt-0">
+        <div class="row mb-3" id="Numbers">
+            <legend class="col-form-label col-sm-2 pt-0">Include Numbers</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                    <label class="form-check-label" for="gridCheck1">
+                        (e.g. 123456)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="row mb-3 mt-0">
+        <div class="row mb-3" id="symbols">
+            <legend class="col-form-label col-sm-2 pt-0">Include Symbols</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                    <label class="form-check-label" for="gridCheck1">
+                        (e.g. @#$%)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="row mb-3">
+        <legend for="exclude" class="col-sm-2 col-form-label">Exclude Characters</legend>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" aria-describedby="excludeHelp">
+            <div id="excludeHelp" class="form-text">These characters will not appear in the password</div>
+        </div>
+    </div>
+        <button type="submit" class="btn btn-success mb-3">Generate Password</button>
+    </form>
+</div>
