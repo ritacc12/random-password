@@ -3,10 +3,26 @@
     color: #FFFFFF;
 }
 
-/* .background{
-    color: bisque;
-} */
-
 .container{
     background-color: #DEEFE7
+}
+
+.invalid-feedback, .valid-feedback {
+  display: none;
+  font-size: 0.8em;
+}
+.invalid-feedback {
+  color: red
+}
+.valid-feedback {
+  color: green
+}
+/* form.was-validated .form-control:invalid ~ .invalid-feedback,
+form.was-validated .form-control:valid ~ .valid-feedback {
+  display: initial;   /* 顯示 */
+/* } */ 
+
+#password{
+  background-color: antiquewhite;
+  font-size:large;
 }
