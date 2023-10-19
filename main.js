@@ -1,26 +1,26 @@
-function generatePassword(data) {
+function generatePassword(character) {
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const number = '1234567890';
     const symbol = '~`!@#$%^&*()_-+={}?[]/<>;:';
-    const exclude = data.exclude;
+    const exclude = character.exclude;
 
     let collection = '';
     let password = '';
 
-    if (data.lowercase === "on") {
+    if (character.lowercase === "on") {
         collection += lowercase;
     }
 
-    if (data.uppercase === "on") {
+    if (character.uppercase === "on") {
         collection += uppercase;
     }
 
-    if (data.number === "on") {
+    if (character.number === "on") {
         collection += number;
     }
 
-    if (data.symbol === "on") {
+    if (character.symbol === "on") {
         collection += symbol;
     }
 
@@ -31,16 +31,16 @@ function generatePassword(data) {
     )
   }
 
-    if (data.length < 4 || data.length > 16) {
+    if (character.length < 4 || character.length > 16) {
         return 'Please select a length between 4 - 16';
     }
 
-    if(data.lowercase !=="on" && data.uppercase !=="on" && data.number !=="on" && data.symbol !=="on"){
+    if(character.lowercase !=="on" && character.uppercase !=="on" && character.number !=="on" && character.symbol !=="on"){
         return 'Please select at least one character type';   
     }
 
-    for (let i = 0; i < data.length; i++) {
-        console.log(typeof data.length, data.length);
+    for (let i = 0; i < character.length; i++) {
+        console.log(typeof character.length, character.length);
         const randomIndex = Math.floor(Math.random() * collection.length);
         password += collection[randomIndex];
     }
