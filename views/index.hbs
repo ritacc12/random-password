@@ -1,55 +1,51 @@
 <link href="/stylesheets/index.css" rel="stylesheet">
 
-<header class="header d-flex justify-content-start sticky-top">
+<header class="header d-flex justify-content-center sticky-top">
     <h2>Random Password Generator</h2>
 </header>
 <!-- As a heading -->
 
 
-<div class="container mb-10">
-    <div class="d-flex justify-content-start ">
-        <h5 class="d-flex justify-content-start p-3"><i class="fas fa-key">Random Password Generator</i></h5>
+<div class="container mt-10">
+        <div class="d-flex justify-content-center">
+            <h5 class="shadow p-3 mb-3 bg-body-tertiary rounded" id="title"><i>Please choose the password type</i></h5>
         </div>
-    <form class="form" id="form" method="POST" action="/" novalidate>
-        
+    <form class="form d-flex align-items-center needs-validation" method="POST" action="/" novalidate>
         <div class="row mb-3">
-            <legend for="length" class="col-sm-2  col-form-label">Password Length</legend>
+            <label for="length" class="col-sm-2  col-form-label">Password Length</label>
             <div class="col-sm-10 mt-10 p-3">
-                <input type="number" class="form-control" id="lengthInput" aria-describedby="passwordHelp" min="4" max="16" required>
+                <input type="number" class="form-control" id="length" aria-describedby="passwordHelp" min="4" max="16" name="length" required>
                 <div id="passwordHelp" class="form-text passwordHelp">Length is available between 4 ~ 16
                 </div>
         </div>
-        <div class="row mb-3">
-            <div class="valid-feedback" id="validationCustom02">
+        <div class="row mb-3" id="passwordHelp">
+            <div class="valid-feedback">
                 Looks good!
             </div>
-        <div class="row mb-3">
-            <div class="invalid-feedback" id="validationCustom02">
+        <div class="row mb-3" id="passwordHelp">
+            <div class="invalid-feedback">
                 Please select a valid state.
             </div>
         </div>
         </div>
 
-        <fieldset class="row mb-3">
             <div class="row mb-3" id="lowercase">
-                <legend class="col-form-label col-sm-2 pt-0">Include Lowercase Characters</legend>
+                <label class="col-form-label col-sm-2 pt-0">Include Lowercase Characters</label>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="lowercase" {{#if option.lowercase}}checked{{/if}} value="on">
+                        <input class="form-check-input" type="checkbox" id="lowercase" name="lowercase">
                         <label class="form-check-label" for="lowercase"></label>
                             (e.g. abcdefg)
                         </label>
                     </div>
                 </div>
             </div>
-        </fieldset>
 
-        <fieldset class="row mb-3 mt-0">
             <div class="row mb-3" id="Uppercase">
-                <legend class="col-form-label col-sm-2 pt-0">Include Uppercase Characters</legend>
+                <label class="col-form-label col-sm-2 pt-0">Include Uppercase Characters</label>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="uppercase" {{#if option.uppercase}}checked{{/if}}value="on">
+                        <input class="form-check-input" type="checkbox" id="uppercase" name="uppercase">
                         <label class="form-check-label" for="uppercase">
                             (e.g. ABCDEFG)
                         </label>
@@ -58,57 +54,55 @@
             </div>
         </fieldset>
        
-    <fieldset class="row mb-3 mt-0">
         <div class="row mb-3" id="Numbers">
-            <legend class="col-form-label col-sm-2 pt-0">Include Numbers</legend>
+            <label class="col-form-label col-sm-2 pt-0">Include Numbers</label>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="number" {{#if option.number}}checked{{/if}} value="on">
+                    <input class="form-check-input" type="checkbox" id="number" name="number">
                     <label class="form-check-label" for="number">
                         (e.g. 123456)
                     </label>
                 </div>
             </div>
         </div>
-    </fieldset>
 
-    <fieldset class="row mb-3 mt-0">
         <div class="row mb-3" id="symbols">
-            <legend class="col-form-label col-sm-2 pt-0">Include Symbols</legend>
+            <label class="col-form-label col-sm-2 pt-0">Include Symbols</label>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="symbol" {{#if option.symbol}}checked{{/if}} value="on">
+                    <input class="form-check-input" type="checkbox" id="symbol" name="symbol">
                     <label class="form-check-label" for="symbol">
                         (e.g. @#$%)
                     </label>
                 </div>
             </div>
         </div>
-    </fieldset>
+
 
     <div class="row mb-3">
-        <legend for="exclude" class="col-sm-2 col-form-label">Exclude Characters</legend>
+        <label for="exclude" class="col-sm-2 col-form-label">Exclude Characters</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="ExcludeChar" aria-describedby="excludeHelp">
             <div id="excludeHelp" class="form-text exclude">These characters will not appear in the password</div>
         </div>
     </div>
 
+    <button type="submit" class="submit btn btn-success" id="submit-button">Generate Password</button>
+
         {{#if password}}
         <div class="password mb-3 p-3">
             <div>
-                Your Password: <code id="password">{{password}}</code>
+                <h5 id="result">Your Password : <code id="password">{{password}}</code></h5>
             </div>
         </div>
-        {{/if}}
+        {{/if}}   
     </form>
-    <button type="submit" class="submit btn btn-success mb-3" id="submit-button">Generate Password</button>
 </div>
 
 <script>
 
-    const form = document.querySelector('.form')
-    const lengthInput = document.querySelector('#lengthInput')
+    const form = document.querySelector('needs-validation')
+    const lengthInput = document.querySelector('#length')
     const submitButton = document.querySelector('.submit')
     const passwordHelp = document.querySelector('#passwordHelp'); // Define passwordHelp
 
@@ -119,14 +113,15 @@
                 event.preventDefault()
                 console.log('Form invalid');
             }
-        })
+            form.classList.add('was-validated')
+    }, false)
 
     lengthInput.addEventListener('keyup',function(event){
-        const length = parseInt(lengthInput.value)
+        const length = parseInt(length.value)
         if(length < 4 || length > 16 ||length === 0){
             passwordHelp.classList.add('invalid-feedback')
             passwordHelp.classList.remove('valid-feedback')
-            alert('Please select a length between 4 - 16') ;
+            //alert('Please select a length between 4 - 16') ;
         }else{
             passwordHelp.classList.add('valid-feedback')
             passwordHelp.classList.remove('invalid-feedback')
@@ -135,7 +130,7 @@
 
      submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
           if(form.classList.contain('invalid-feedback')){
-            return
+            return 
           }
             form.submit()
         })
