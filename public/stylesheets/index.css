@@ -1,10 +1,19 @@
 .header{
     background-color: #002333;
     color: #FFFFFF;
+    align-items: flex-start;
 }
 
 .container{
-    background-color: #DEEFE7
+  background-color: #DEEFE7;
+  margin: 30px auto;
+}
+
+#title{
+  margin-top: 10px;
+  box-shadow: 0 1px;
+  padding-bottom:5px;
+  background-color: #FFFFFF;
 }
 
 .invalid-feedback, .valid-feedback {
@@ -17,10 +26,11 @@
 .valid-feedback {
   color: green
 }
-/* form.was-validated .form-control:invalid ~ .invalid-feedback,
-form.was-validated .form-control:valid ~ .valid-feedback {
+
+ /* .form-control:invalid ~ .invalid-feedback,
+ .form-control:valid ~ .valid-feedback {
   display: initial;   /* 顯示 */
-/* } */ 
+  /* }   */ 
 
 #password{
   background-color: antiquewhite;
